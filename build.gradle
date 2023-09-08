@@ -29,6 +29,7 @@ dependencies {
 	implementation "com.h2database:h2"
 	implementation 'org.modelmapper:modelmapper:2.4.2'
 	implementation "org.mariadb.jdbc:mariadb-java-client:2.1.2"
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
 	//Querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
