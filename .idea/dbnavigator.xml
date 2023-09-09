@@ -2,8 +2,26 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
+  </component>
+  <component name="DBNavigator.Project.DataExportManager">
+    <export-instructions>
+      <create-header value="true" />
+      <friendly-headers value="false" />
+      <quote-values-containing-separator value="true" />
+      <quote-all-values value="false" />
+      <value-separator value="" />
+      <begin-quote value="&quot;" />
+      <end-quote value="&quot;" />
+      <file-name value="" />
+      <file-location value="" />
+      <scope value="GLOBAL" />
+      <destination value="FILE" />
+      <format value="EXCEL" />
+      <charset value="UTF-8" />
+      <charset value="UTF-8" />
+    </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
@@ -15,9 +33,11 @@
     <connection id="d26df2a4-c2db-4966-ac8f-47e19860e18b">
       <console name="Connection" type="STANDARD" schema="shop" session="Main"><![CDATA[show databases;
 
-use shop;
+drop database shop;
 
-show tables;]]></console>
+show processlist;
+
+CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -26,12 +46,31 @@ show tables;]]></console>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="d26df2a4-c2db-4966-ac8f-47e19860e18b">
+      <session name="Session 1" id="e89b53fb-b3ea-4d05-845d-8fb7bb5f33c6" />
+    </connection>
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="d26df2a4-c2db-4966-ac8f-47e19860e18b" dataset="shop.member" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="d26df2a4-c2db-4966-ac8f-47e19860e18b" dataset="shop.order_item" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="d26df2a4-c2db-4966-ac8f-47e19860e18b" dataset="shop.hibernate_sequence" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="d26df2a4-c2db-4966-ac8f-47e19860e18b" dataset="shop.cart" active-filter-id="3fe3e206-1a37-4688-add5-2bb51518104e">
+      <filter id="3fe3e206-1a37-4688-add5-2bb51518104e" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="cart_id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="d26df2a4-c2db-4966-ac8f-47e19860e18b" dataset="shop.item" active-filter-id="EMPTY_FILTER" />
+  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>

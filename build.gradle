@@ -16,20 +16,37 @@ repositories {
 }
 
 dependencies {
+	//springboot JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	//h2 databse jpa하면 이거 설정해줘야함
+	implementation "com.h2database:h2"
+
+	//springboot security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//springboot thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	//헤더 footer 설정 해주는것
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+	//springboot starter
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	implementation 'org.projectlombok:lombok:1.18.28'
+
+	//springboot devtools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//lombok
+	implementation 'org.projectlombok:lombok:1.18.28'
+
+	//springboot test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	implementation "com.h2database:h2"
+
 	implementation 'org.modelmapper:modelmapper:2.4.2'
 	implementation "org.mariadb.jdbc:mariadb-java-client:2.1.2"
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
 	//Querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
