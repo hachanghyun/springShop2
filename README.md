@@ -47,20 +47,30 @@
 	@Value : 자바코드에서 설정값 사용가능
 
 #### (b).@RestController : @Controller와 @ResponseBody를 합쳐 놓은 어노테이션
+
     @Controller : 해당 클래스를 요청을 처리하는 컨트롤러로 사용
+    
     @ResponseBody : 자바 객체를 HTTP 응당 본문의 객체로 변환해 클라이언트에게 전송
 
 #### (c).Lombok : 반복적인 자바 코드를 컴파일할 때 자동으로 생성해주는 라이브러리
+
     @Getter @Setter : 접근자/설정자 자동 생성
+    
     @NoArgsConstructor : 파라미터가 없는 기본 생성자 생성
+    
     @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자 생성
+    
     @RequiredArgsConstructor : final, @NonNull인 필드 값만 파라미터로 받는 생성자 생성 
+    
     @Tostring : toSting() 메소드 생성
 
 #### (d).Maria DB 설정
     maria db 접속 : mysql -u root -p
+    
     show databases; : 현재 데이터베이스 리스트 조회
+    
     use 데이터베이스명; : 데이터베이스명 사용
+    
     DB 생성 : CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ### (2).JPA 정리
@@ -77,16 +87,21 @@
 
 #### (b).querydsl , JPQL 비교
     querydsl 장점
-    타입 안정성이 보장됩니다. 단순한 문자열로 쿼리를 생성하는 것이 아니라, 메소드를 기반으로 쿼리를 생성하기 때문에 오타나 존재하지 않는 컬럼명을 명시할 경우 IDE에서 자동으로 검출됩니다. 이 장점은 Jooq에서도 지원하는 장점
-    이지만, Mybatis에서는 지원하지 않습니다.
+    타입 안정성이 보장됩니다. 단순한 문자열로 쿼리를 생성하는 것이 아니라, 메소드를 기반으로 쿼리를 생성하기 때문에 오타나 존재하지 않는 컬럼명을 명시할 경우 IDE에서 자동으로 검출됩니다. 이 장점은 Jooq에서도 지원하는 장점이지만, Mybatis에서는 지원하지 않습니다.
+    
     1. 문자가 아닌 코드로 작성
+    
     2. Compile 단계에서 문법 오류를 확인 가능
+    
     3. 코드 자동 완성 기능 활용 가능
+    
     4. 동적 쿼리 구현 가능
 
     JPQL 단점
     1. JPQL은 문자열(=String) 형태이기 때문에 개발자 의존적 형태
+    
     2. Compile 단계에서 Type-Check가 불가능
+    
     3. RunTime 단계에서 오류 발견 가능 (장애 risk 상승)
 
 #### (c).Entity 
@@ -94,24 +109,33 @@
 
 #### (d).Entity Manager Factory
     엔티티 매니저 인스턴스를 관리하는 주체
+    
     애플리케이션 실행 시 한 개만 만들어지며 사용자로부터 요청이 오면 엔티티 매니저 팩토리로부터 엔티티 매니저를 생성합니다.
 
 #### (e).Entity Manager 
     엔티티 매니저란 영속성 컨텍스트에 접근하여 엔티티에 대한 데이터베이스 작업을 제공합니다.
+    
     내부적으로 데이터베이스 커넥션을 사용하여 데이터베이스에 접근합니다.
+    
     엔티티 매니저의 몇가지 메소드를 살펴보겠습니다. 
+    
     find() 메소드 : 영속성 컨텍스트에서 엔티티를 검색하고 영속성 컨텍스트에 없을 경우 데이터베이스에서 데이터를 찾아 영속성 컨텍스트에 저장합니다.
+    
     persist() 메소드 : 엔티티를 영속성 컨텍스트에 저장합니다.
+    
     remove() 메소드 : 엔티티 클래스를 영속성 컨텍스트에서 삭제합니다.
+    
     flush() 메소드 : 영속성 컨텍스트에 저장된 내용을 데이터베이스에 반영합니다.
 
 #### (f).영속성 컨텍스트에 저장후 데이터베이스에 반영하는 코드
     Item item = new Item(); //영속성 컨텍스트와 관련없는 상품 엔티티
+    
     item.setItemNm("테스트 상품");
     
     EntityManager em = entityManagerFactory.createEntityManager(); //엔티티매니저 팩토리로부터 엔티티 매니저를 생성
     
     EntityTransaction transaction = em.getTransaction(); // 데이터의 무결성을 위해 반드시 트랜잭션을 시작
+    
     transaction.begin();
     
     em.persiste(item); //생성한 상품 엔티티가 영속성 컨텍스트에 저장된 상태, 데이터베이스에 insert sql을 보내지 않은 단계
@@ -119,6 +143,7 @@
     transaction.commit(); // 트랜잭션을 데이터베이스에 반영, 이때 영속성 컨텍스트에 저장된 상품 정보가 데이터베이스 insert 되면서 반영
     
     em.close(); //사용한 자원을 반환합니다.
+    
     emf.close();
 
 #### (g).영속성 컨텍스트 사용 시 이점
