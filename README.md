@@ -5,8 +5,8 @@
 ### 주요 기능
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 14" src="https://github.com/hachanghyun/springShop2/assets/33058284/65925fc8-ae8e-4d2a-9d83-1b50d1100bb1">
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 26" src="https://github.com/hachanghyun/springShop2/assets/33058284/f22edd25-2e97-401b-b739-b1c933330ddc">
-		
-  메인화면으로 탑 메뉴와 배너, 상품 목록을 볼수 있으며 탑 메뉴에서는 상품등록, 상품관리, 장바구니, 구매이력 메뉴가 있다.
+
+##### 메인화면으로 탑 메뉴와 배너, 상품 목록을 볼수 있으며 탑 메뉴에서는 상품등록, 상품관리, 장바구니, 구매이력 메뉴가 있다.
 
 
 
