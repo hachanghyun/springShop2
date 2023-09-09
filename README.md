@@ -3,6 +3,9 @@
 #### maria db 접속
     mysql -u root -p
 
+#### DB 생성
+    CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 ### 스프링부트 어노테이션 정리
 
 #### @RestController
