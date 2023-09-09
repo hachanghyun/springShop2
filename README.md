@@ -143,6 +143,40 @@
     create-drop: 기존 테이블 삭제 후 테이블 생성, 종료 시점에 테이블 삭제 //운영환경 사용금지
     update: 변경된 스키마 적용 //운영환경 사용금지
     validate: 엔티티와 테이블 정상 매핑 확인 //운영환경 사용
+    
+##### Entity 매핑 관련 어노테이션 정리
+    @Entity : @Entity 어노테이션은 JPA를 사용해 테이블과 매핑할 클래스에 붙여주는 어노테이션이다. 이 어노테이션을 붙임으로써 JPA가 해당 클래스를 관리하게 된다.	
+    @Table : @Table은 엔티티와 매핑할 테이블을 지정
+    @Id: @Id는 특정 속성을 기본키로 설정하는 어노테이션이다.
+    @Column : @Column은 객체 필드를 테이블 컬럼과 매핑한다.
+    @Access : @Access는 JPA가 엔티티 데이터에 접근하는 방식을 지정한다.
+    @Enumerated : @Enumerated는 자바 enum 타입을 매핑할 때 사용한다.
+    @Temporal : @Temporal은 날짜 타입을 매핑할 때 사용한다
+    @Lob : @Lob은 일반적인 데이터베이스에서 저장하는 길이인 255개 이상의 문자를 저장하고 싶을 때 지정한다. DB BLOB, CLOB 타입과 매핑 @Lob은 정의할 속성이 따로 없다. 대신 필드 타입이 문자열이면 CLOB, 나머지는 BLOB을 매핑
+    @Transient: @Transient 어노테이션을 붙인 필드는 DB에 저장하지도 조회하지도 않는다. 객체에 임시로 값을 보관하고 싶을 때 사용
+    @LastModifiedDate : 조회한 엔티티의 값을 변경할 때 시간 자동 저장
+
+##### Column 속성
+    name :필드와 매핑할 테이블의 컬럼 이름을 지정한다.
+    insertable (거의 사용하지 않음) : 엔티티 저장 시 이 필드도 같이 저장한다. false로 설정하면 이 필드는 데이터베이스에 저장하지 않는다. false 옵션은 읽기 전용일 때 사용한다.
+    updateable : 엔티티 수정 시 이 필드도 같이 수정한다. false로 설정하면 데이터베이스에 수정하지 않는다. false 옵션은 읽기 전용일 때 사용한다.
+    table (거의 사용하지 않음) : 하나의 엔티티를 두 개 이상의 테이블에 매필할 때 사용한다.(@SecondaryTable 사용) 지정한 필드를 다른 테이블에 매핑할 수 있다.
+    nullable (DDL) : DDL 생성 시 null 값의 허용 여부를 설정한다. false로 설정하면 not null 제약조건이 붙는다.
+    unique (DDL) : @Table의 uniqueConstraints와 같으나 한 컬럼에 간단히 유니크 제약조건을 걸 때 사용한다.
+    columnDefinition (DDL) : 데이터베이스 컬럼 정보를 직접 줄 수 있다.
+    length (DDL) : 문자 길이 제약조건, String 타입에만 사용한다.
+    precision, scale (DDL) : BigDecimal 타입(혹은 BigInteger)에서 사용한다. precision은 소수점을 포함한 전체 자리수를, scale은 소수의 자리수다.
+
+##### 기본키를 자동으로 생성하는 방법 4가지
+    기본키를 자동으로 생성할 때에는 @Id와 @GenerratedValue 어노테이션이 함께 사용되어야 한다.
+    1. @GeneratedValue(strategy = GenerationType.IDENTITY) : 기본키 생성을 데이터베이스에게 위임하는 방식으로 id값을 따로 할당하지 않아도 데이터베이스가 자동으로 AUTO_INCREMENT를 하여 기본키를 생성해준다.
+    2. @GeneratedValue(strategy = GenerationType.SEQUNCE) : 데이터 베이스의 Sequence Object를 사용하여 데이터베이스가 자동으로 기본키를 생성해준다. @SequenceGenerator 어노테이션이 필요하다.
+    3. @GeneratedValue(strategy = GenerationType.TABLE) : 키를 생성하는 테이블을 사용하는 방법으로 Sequence와 유사하다. @TableGenerator 어노테이션이 필요하다.
+    4. @GeneratedValue(strategy = GenerationType.AUTO) : 기본 설정 값으로 각 데이터베이스에 따라 기본키를 자동으로 생성한다.
+    기본키의 제약조건
+    (1). null이면 안된다.
+    (2). 유일하게 식별할 수 있어야한다.
+    (3). 변하지 않는 값이어야 한다.
 
 ##### 쿼리메소드
     find + (엔티티 이름) + By + 변수이름
