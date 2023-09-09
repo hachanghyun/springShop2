@@ -36,12 +36,14 @@
 
 
 ## 3. Meaning
-	
+	기본 예제를 통해서 Thymeleaf, SprinfData JPA의 기본 사용법을 익히고 스프링 부트위에서 상품, 주문, 장보구니 도메인 로직을
+ 	구현해보는 구성입니다. 최신 백엔드 기술을 최대한 다 접목시켜봤으며 이커머스에 관심이 많았는데 이번기회에 스프링 부트 기술을 이커머스시스템으로
+  	구현해봐서 좋은 경험 이었습니다. 
     
 ## 4. Technology Stack(s)
     Frontend : thymleaf
     
-    Backend : SpringBoot, SpringData JPA
+    Backend : SpringBoot_2.7.15, SpringData JPA, JAVA_11, Gradle
     
     Database : MariaDB
 
