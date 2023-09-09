@@ -1,4 +1,20 @@
-# springShop2
+## 1. Deployment URL
+  https://github.com/hachanghyun/springShop2
+  
+## 2. Summary
+### 주요 기능
+
+## 3. Meaning
+	
+    
+## 4. Technology Stack(s)
+    Frontend : thymleaf
+    
+    Backend : SpringBoot, SpringData JPA
+    
+    Database : MariaDB
+
+## 5. Environment Setup
 
 #### maria db 접속
     mysql -u root -p
