@@ -32,7 +32,7 @@
  	구현해보는 구성입니다. 최신 백엔드 기술을 최대한 다 접목시켜봤으며 이커머스에 관심이 많았는데 이번기회에 스프링 부트 기술을 이커머스시스템으로
   	구현해봐서 좋은 경험 이었습니다. 
     
-## 4. Technology Stack(s)
+## 4. Technology Stacks
     Frontend : thymleaf
     
     Backend : SpringBoot_2.7.15, SpringData JPA, JAVA_11, Gradle
@@ -40,12 +40,6 @@
     Database : MariaDB
 
 ## 5. Develop Environment
-
-#### maria db 접속
-    mysql -u root -p
-
-#### DB 생성
-    CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ### 스프링부트 어노테이션 정리
 
@@ -66,28 +60,36 @@
     @RequiredArgsConstructor : final, @NonNull인 필드 값만 파라미터로 받는 생성자 생성 
     @Tostring : toSting() 메소드 생성
 
-#### 롬복 빌드시 추가
-    annotationProcessor('org.projectlombok:lombok') // 추가
+#### Maria DB 설정
+    maria db 접속 : mysql -u root -p
+    show databases; : 현재 데이터베이스 리스트 조회
+    use 데이터베이스명; : 데이터베이스명 사용
+    DB 생성 : CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+    
+#### JPA 장점 ,단점
+    장점
+    1. 특정 데이터베이스에 종속되지 않음
+    2. 객체지향적 프로그래밍
+    3. 생산성 향상
+    단점
+    1. 복잡한 쿼리 처리 : JPQL, qeurydsl 사용
+    2. 성능 저하 위험
+    3. 학습시간 
 
-#### JPA
-    조회 : querydsl
-    등록, 수정, 삭제 : springDataJPA
-
-##### querydsl 장점
+##### querydsl , JPQL 비교
+    querydsl 장점
     타입 안정성이 보장됩니다. 단순한 문자열로 쿼리를 생성하는 것이 아니라, 메소드를 기반으로 쿼리를 생성하기 때문에 오타나 존재하지 않는 컬럼명을 명시할 경우 IDE에서 자동으로 검출됩니다. 이 장점은 Jooq에서도 지원하는 장점
     이지만, Mybatis에서는 지원하지 않습니다.
-
-##### JPQL의 문제점
-    1. JPQL은 문자열(=String) 형태이기 때문에 개발자 의존적 형태
-    2. Compile 단계에서 Type-Check가 불가능
-    3. RunTime 단계에서 오류 발견 가능 (장애 risk 상승)
-
-##### query DSL 특징
     1. 문자가 아닌 코드로 작성
     2. Compile 단계에서 문법 오류를 확인 가능
     3. 코드 자동 완성 기능 활용 가능
     4. 동적 쿼리 구현 가능
 
+    JPQL 단점
+    1. JPQL은 문자열(=String) 형태이기 때문에 개발자 의존적 형태
+    2. Compile 단계에서 Type-Check가 불가능
+    3. RunTime 단계에서 오류 발견 가능 (장애 risk 상승)
+    
 #### Entity 
     데이터베이스의 테이블에 대응하는 클래스
 
@@ -155,12 +157,4 @@
 ##### 쿼리메소드
     find + (엔티티 이름) + By + 변수이름
     엔티티 이름은 생략가능
-
-##### 스프링부트3 querydsl 적용
-    build.gradle
-    //querydsl 추가
-	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
-	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
