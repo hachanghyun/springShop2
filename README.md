@@ -57,24 +57,22 @@
 
 ### 스프링부트 어노테이션 정리
 
-#### @RestController
-    @Controller와 @ResponseBody를 합쳐 놓은 어노테이션.
-    
-#### Lombok
-    반복적인 자바 코드를 컴파일할 때 자동으로 생성해주는 라이브러리.
-    
-##### 접근자/설정자 자동 생성
-    @Getter
-    @Setter
+#### application-{profile}.properties 설정파일
+	@Value : 자바코드에서 설정값 사용가능
 
-##### 생성자 자동 생성 (Lombok 어노테이션을 통해서 생성자를 자동으로 생성할 수 있습니다.)
-    @NoArgsConstructor : 파라미터가 없는 기본 생성자
-    @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자
-    @RequiredArgsConstructor : final, @NonNull인 필드 값만 파라미터로 받는 생성자
 
-##### ToString 어노테이션
-    @ToString
-    @ToString 어노테이션 클래스에 붙여주면 자동으로 생성해줍니다. 이와 추가적으로 exclude 속성을 사용하면, 특정 필드를 toString()에서 결과를 제거할 수 있습니다.
+#### @RestController : @Controller와 @ResponseBody를 합쳐 놓은 어노테이션
+    @Controller : 해당 클래스를 요청을 처리하는 컨트롤러로 사용
+    @ResponseBody : 자바 객체를 HTTP 응당 본문의 객체로 변환해 클라이언트에게 전송
+
+
+    
+#### Lombok : 반복적인 자바 코드를 컴파일할 때 자동으로 생성해주는 라이브러리
+    @Getter @Setter : 접근자/설정자 자동 생성
+    @NoArgsConstructor : 파라미터가 없는 기본 생성자 생성
+    @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자 생성
+    @RequiredArgsConstructor : final, @NonNull인 필드 값만 파라미터로 받는 생성자 생성 
+    @Tostring : toSting() 메소드 생성
 
 #### 롬복 빌드시 추가
     annotationProcessor('org.projectlombok:lombok') // 추가
