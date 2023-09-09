@@ -3,6 +3,12 @@
   
 ## 2. Summary
 ### 주요 기능
+
+<img width="1438" alt="스크린샷 2023-09-09 오후 2 07 14" src="https://github.com/hachanghyun/springShop2/assets/33058284/aac8fb75-250a-47e4-a8ca-ec52db39c065">
+<img width="1440" alt="스크린샷 2023-09-09 오후 2 07 21" src="https://github.com/hachanghyun/springShop2/assets/33058284/25d9d203-a4e8-418f-8aa3-2c4f1c568fb0">
+
+##### (0).기본적으로 로그인 및 회원 가입 기능이 있다.
+
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 14" src="https://github.com/hachanghyun/springShop2/assets/33058284/65925fc8-ae8e-4d2a-9d83-1b50d1100bb1">
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 26" src="https://github.com/hachanghyun/springShop2/assets/33058284/f22edd25-2e97-401b-b739-b1c933330ddc">
 
