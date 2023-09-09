@@ -222,6 +222,35 @@
     (2). 유일하게 식별할 수 있어야한다.
     (3). 변하지 않는 값이어야 한다.
 
+#### (l).Repository 기본 메소드
+	import org.springframework.data.jpa.repository.JpaRepository; 
+
+	import domain.Member; 
+	
+	public interface SampleRepository extends JpaRepository<Member, Integer> {
+	
+	}
+ 
+	이 인터페이스를 구현한 클래스를 spring JPA가 자동으로 구현한다. 자동으로 구현된 클래스에는 아래와 같은 기본 메서드를 포함한다.
+
+ 	findAll() 메소드 : Member 테이블에서 레코드 전체 목록을 조회, List<Member> 객체가 리턴
+  
+        findById(id) : Member 테이블에서 기본키 필드 값이 id인 레코드를 조회 Optional<Member> 타입의 객체가 리턴, 이 객체의 get 메서드를 호출하면 Member 객체가 리턴 예) Member m = memberRepository.findById(id).get();
+
+ 	save(member) : Member 객체를 Member 테이블에 저장, 객체의 id(기본키) 속성값이 0이면 INSERT / 0이 아니면 UPDATE
+
+	saveAll(memberList) : Member 객체 목록을 Member 테이블에 저장
+
+ 	delete(member) : Member 객체의 id(기본키) 속성값과 일치하는 레코드를 삭제
+
+ 	deleteAll(memberList) : Member 객체 목록을 테이블에서 삭제
+
+ 	count() : Member 테이블의 전체 레코드 수를 리턴
+
+	exists(id) : Member 테이블에서 id에 해당하는 레코드가 있는지 true/false를 리턴
+
+ 	flush() : 지금까지 Member 테이블에 대한 데이터 변경 작업들이 디스크에 모두 기록
+ 	
 ##### 쿼리메소드
     find + (엔티티 이름) + By + 변수이름
     엔티티 이름은 생략가능
