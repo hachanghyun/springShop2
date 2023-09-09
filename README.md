@@ -6,9 +6,21 @@
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 14" src="https://github.com/hachanghyun/springShop2/assets/33058284/65925fc8-ae8e-4d2a-9d83-1b50d1100bb1">
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 45 26" src="https://github.com/hachanghyun/springShop2/assets/33058284/f22edd25-2e97-401b-b739-b1c933330ddc">
 
-##### 메인화면으로 탑 메뉴와 배너, 상품 목록을 볼수 있으며 탑 메뉴에서는 상품등록, 상품관리, 장바구니, 구매이력 메뉴가 있다.
+##### (1).메인화면으로 탑 메뉴와 배너, 상품 목록을 볼수 있으며 탑 메뉴에서는 상품등록, 상품관리, 장바구니, 구매이력 메뉴가 있다.
 
+<img width="1436" alt="스크린샷 2023-09-09 오후 2 02 16" src="https://github.com/hachanghyun/springShop2/assets/33058284/483f7d86-0960-4a94-b581-eaf86cb7857e">
 
+##### (2). 메인화면에서 상품을 클릭하면 해당 상품정보 페이지가 나오고 장바구니담기와 주문하기 기능이 가능하다.
+
+<img width="1440" alt="스크린샷 2023-09-09 오후 1 45 50" src="https://github.com/hachanghyun/springShop2/assets/33058284/52e95ad9-2411-4f68-82c7-2ab4f95d327f">
+
+##### (3).상품 등록 페이지에서는 상품 등록 및 이미지를 업로드 할 수 있다.
+
+<img width="1440" alt="스크린샷 2023-09-09 오후 1 45 58" src="https://github.com/hachanghyun/springShop2/assets/33058284/e44a607f-b7b7-400f-b251-0c46c0a83994">
+
+##### (4).상품 관리 페이지에서는 등록한 상품ID 및 등록자 정보를 확인 할 수 있다.
+
+##### (5).상품 관리 페이지에서는 등록한 상품ID 및 등록자 정보를 확인 할 수 있다.
 
 ## 3. Meaning
 	
