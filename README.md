@@ -47,7 +47,7 @@
     
     Database : MariaDB
 
-## 5. Environment Setup
+## 5. Develop Environment
 
 #### maria db 접속
     mysql -u root -p
