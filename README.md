@@ -28,14 +28,13 @@
 <img width="1440" alt="스크린샷 2023-09-09 오후 1 46 33" src="https://github.com/hachanghyun/springShop2/assets/33058284/c9f9c62a-e108-43a8-bda1-6ce3cd87df00">
 
 ## 3. Meaning
-	기본 예제를 통해서 Thymeleaf, SprinfData JPA의 기본 사용법을 익히고 스프링 부트위에서 상품, 주문, 장보구니 도메인 로직을
- 	구현해보는 구성입니다. 최신 백엔드 기술을 최대한 다 접목시켜봤으며 이커머스에 관심이 많았는데 이번기회에 스프링 부트 기술을 이커머스시스템으로
-  	구현해봐서 좋은 경험 이었습니다. 
+	기본 예제를 통해서 Thymeleaf, SprinfData JPA의 기본 사용법을 익히고 스프링 부트위에서 상품, 주문, 장보구니 도메인 로직을 구현해보는 구성입니다. 
+ 	최신 백엔드 기술을 최대한 접목시켜봤으며 이커머스에 관심이 많았는데 이번기회에 스프링 부트 기술을 이커머스 쇼핑몰으로 구현해봐서 좋은 경험 이었습니다. 
     
 ## 4. Technology Stacks
     Frontend : thymleaf
     
-    Backend : SpringBoot_2.7.15, SpringData JPA, JAVA_11, Gradle
+    Backend : SpringBoot_2.7.1, SpringData JPA, JAVA_11, Gradle
     
     Database : MariaDB
 
@@ -45,6 +44,7 @@
 
 #### (a).application-{profile}.properties 설정파일
 	@Value : 자바코드에서 설정값 사용가능
+ 	@TestProperty : @TestPropertySource(locations = "classpath:/ApplicationTest.properties") TEST 코드 작성시 H2 데이터베이스로 사용
 
 #### (b).@RestController : @Controller와 @ResponseBody를 합쳐 놓은 어노테이션
 
@@ -72,6 +72,15 @@
     use 데이터베이스명; : 데이터베이스명 사용
     
     DB 생성 : CREATE DATABASE shop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#### (e).테스트 코드 작성
+	@SpringBooTest : 통합 테스트를 위해 스프링 부트에서 제공하는 어노테이션, 실제 애플리케이션을 구동할 때처럼 모든 Bean을 IOC 컨테이너에 등록, 애플리케이션 규모가 크면 속도가 느려질 수 있습니다.
+ 
+ 	@Autowired : Bean주입 어노테이션
+  
+  	@Test : 테스트할 메소드 위에 선언하여 해당 메소드를 테스트 대상으로 지정
+   
+   	@DisplayName(테스트명) : Junit5에 추가된 어노테이션으로 테스트 코드 실행시 @DisplayName에 지정한 테스트명이 노출됩니다.
 
 ### (2).JPA 정리
 
@@ -233,10 +242,6 @@
 	
 	이 인터페이스를 구현한 클래스를 spring JPA가 자동으로 구현한다. 자동으로 구현된 클래스에는 아래와 같은 기본 메서드를 포함한다.
 	
-	findAll() 메소드 : Member 테이블에서 레코드 전체 목록을 조회, List<Member> 객체가 리턴
-	
-	findById(id) : Member 테이블에서 기본키 필드 값이 id인 레코드를 조회 Optional<Member> 타입의 객체가 리턴, 이 객체의 get 메서드를 호출하면 Member 객체가 리턴 예) Member m = memberRepository.findById(id).get();
-	
 	save(member) : Member 객체를 Member 테이블에 저장, 객체의 id(기본키) 속성값이 0이면 INSERT / 0이 아니면 UPDATE
 	
 	saveAll(memberList) : Member 객체 목록을 Member 테이블에 저장
@@ -250,8 +255,26 @@
 	exists(id) : Member 테이블에서 id에 해당하는 레코드가 있는지 true/false를 리턴
 	
 	flush() : 지금까지 Member 테이블에 대한 데이터 변경 작업들이 디스크에 모두 기록
+
+	쿼리메소드
+	findAll() 메소드 : Member 테이블에서 레코드 전체 목록을 조회, List<Member> 객체가 리턴
+	
+	findById(id) : find + (엔티티 이름) + By + 변수이름, Member 테이블에서 기본키 필드 값이 id인 레코드를 조회 Optional<Member> 타입의 객체가 리턴, 이 객체의 get 메서드를 호출하면 Member 객체가 리턴 예) Member m = memberRepository.findById(id).get();
+
+#### (m). spring DATA JPA @Query 어노테이션 (JPQL)
+	JPQL특징 : JPQL은 엔티티 객체를 대상으로 쿼리를 수행, 특정 데이터베이스 SQL에 의존하지 않습니다.
+ 
+ 	@Query 를 이용한 조회 : select "엔티티명" = select "*", @Param 을 통해 매개변수로 넘어온 값을 JPQL에 들어갈 변수로 지정
+  	public interface MemberRepository extends JpaRepository<Member, Long> {
+   
+	@Query("select m from Member m where m.username = :username and m.age = :age")
+ 
+	List<Member> findUser(@Param("username") String username, @Param("age") int age);
+
+#### (n). spring DATA JPA Querydsl
+	JPAQuery 데이터 반환메소드
+ 	List<T> fetch()
+
  	
-##### 쿼리메소드
-    find + (엔티티 이름) + By + 변수이름
-    엔티티 이름은 생략가능
+}
 
