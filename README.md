@@ -1,7 +1,7 @@
 ## 1. Deployment URL
   https://github.com/hachanghyun/springShop2
   
-## 2. Summary
+## 2. Summary 
 ### 주요 기능
 
 ##### (1).기본적으로 로그인 및 회원 가입 기능이 있다.
