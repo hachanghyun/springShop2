@@ -1,5 +1,5 @@
 ## 1. Deployment URL
-  https://github.com/hachanghyun/springShop2
+  ### https://github.com/hachanghyun/springShop2
   
 ## 2. Summary 
 ### 주요 기능
