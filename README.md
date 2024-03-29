@@ -607,4 +607,24 @@
 	다대다로 자동생성된 중간테이블은 두 객체의 테이블의 외래 키만 저장되기 때문에 문제가 될 확률이 높습니다. 
  	JPA를 해보면 중간 테이블에 외래 키 외에 다른 정보가 들어가는 경우가 많기 때문에 다대다를 일대다, 
   	다대일로 풀어서 만드는 것(중간 테이블을 Entity로 만드는 것)이 추후 변경에도 유연하게 대처할 수 있습니다.
-   
+
+## 6. 기타
+### 개발 참조 사이트
+##### MariaDB 설치
+##### https://extsdd.tistory.com/432
+
+##### MariaDB-의존성-추가-및-properties-설정
+##### https://velog.io/@sangwoo_le/MariaDB-Spring-Boot%EC%97%90-MariaDB-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%B6%94%EA%B0%80-%EB%B0%8F-properties-%EC%84%A4%EC%A0%95
+
+##### Query-DSL-Spring-boot-3.0-이상-Query-DSL-설정-방법
+##### https://velog.io/@daoh98/Query-DSL-Spring-boot-3.0-%EC%9D%B4%EC%83%81-Query-DSL-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95
+
+##### intellij 에서 break point 사용중 걸리지 않을때 해결방법
+##### https://januaryman.tistory.com/217
+
+##### 파일업로드 - 현재경로 참조하기
+##### https://suzxc2468.tistory.com/139
+
+##### 맥북 파일경로 설정
+##### https://skylarcoding.tistory.com/104
+
